@@ -12,43 +12,85 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+
+    <style>
+
+    </style>
     <!-- endbuild -->
   </head>
   <body ng-app="ngMailApp">
+
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#/">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">ngMail</h3>
-      </div> 
+    <div class="container-fluid">
+      <div id="wrapper">
 
-      <div ng-view=""></div>
-
-      <div class="footer">
-        <div class="row marketing">
-          <h4>HTML5 Boilerplate</h4>
-          <p>
-            HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-          </p>
-
-          <h4>Angular</h4>
-          <p>
-            AngularJS is a toolset for building the framework most suited to your application development.
-          </p>
-
-          <h4>Karma</h4>
-          <p>Spectacular Test Runner for JavaScript.</p>
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
         </div>
-      </div>
+
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <div class="header">
+            <h3 class="text-muted">ngMail</h3>
+        </div>
+        
+        <div ng-view></div>
+
+        <div class="footer">
+          <div class="row marketing">
+            <h4>HTML5 Boilerplate</h4>
+            <p>
+              HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+            </p>
+
+            <h4>Angular</h4>
+            <p>
+              AngularJS is a toolset for building the framework most suited to your application development.
+            </p>
+
+            <h4>Karma</h4>
+            <p>Spectacular Test Runner for JavaScript.</p>
+          </div>
+        </div>
+      </div>  <!-- /#page-content-wrapper -->
+    </div>
+  </div>
+      
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -88,5 +130,5 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/inbox.js"></script>
         <!-- endbuild -->
-</body>
+  </body>
 </html>
