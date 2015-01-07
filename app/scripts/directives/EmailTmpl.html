@@ -12,11 +12,12 @@
   </div>
   <div class="email__content" ng-bind-html="email.message.content"></div>
   <div class="email__response" ng-show="reply">
-    <div class="col-lg-10 col-offset-lg-1">
-      <textarea ng-model="response" class="form-group" placeholder="Enter a reply"></textarea>
+    <div class="col-lg-12" style="text-align:center;">  
+          <textarea ng-model="response" class="form-group" placeholder="Enter a reply"></textarea>
+      <br>
+      <a href="" class="btn btn-success" ng-click="email.reply(response);">
+        Send
+      </a>
     </div>
-    <a href="" class="btn btn-success" ng-click="email.reply(response);">
-      Send
-    </a>
   </div>
 </div>

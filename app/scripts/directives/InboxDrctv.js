@@ -9,7 +9,7 @@ angular.module('ngMailApp')
       restrict: 'EA',
       replace: true,
       scope: true,
-      templateUrl: 'scripts/directives/inbox.tmpl.html',
+      templateUrl: 'scripts/directives/InboxTmpl.html',
       controllerAs: 'inbox',
 
       controller: function (InboxFactory) {
@@ -31,10 +31,9 @@ angular.module('ngMailApp')
       },
 
       link: function (scope, element, attrs, ctrl) {
-        /* 
-          by convention we do not $ prefix arguments to the link function
-          this is to be explicit that they have a fixed order
-        */
+        
+        scope.inbox.search='';
+
       }
     };
   });
