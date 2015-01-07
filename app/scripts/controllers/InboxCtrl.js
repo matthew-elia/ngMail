@@ -5,5 +5,6 @@ angular.module('ngMailApp')
   .controller('InboxCtrl',
     function InboxCtrl ( ) {
       'use strict';
-      console.log('Inbox Loaded!')
+      console.log('Inbox Loaded!');
     });
+  				

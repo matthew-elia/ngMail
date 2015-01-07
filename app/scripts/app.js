@@ -18,15 +18,23 @@ angular
     'ngSanitize',
     'ngTouch'
   ]).config(function ( $routeProvider ) {
-  // configure urls
+
   $routeProvider
-    // inbox route
     .when('/inbox', {
       templateUrl: 'views/inbox.html',
-      controller: 'InboxCtrl', // map js to html scope
+      controller: 'InboxCtrl',
+      controllerAs: 'inbox'
     })
-    .otherwise({ // default
+    .when('/inbox/email/:id', {
+      templateUrl: 'views/email.html',
+      controller: 'EmailCtrl',
+      controllerAs: 'email'
+    })
+    .otherwise({
       redirectTo: '/inbox'
     });
+}).run(function($rootScope){
+  $rootScope.$on('$routeChangeError', function(event, current, previous, rejection){
+    console.log(event, current, previous, rejection);
+  });
 });
-

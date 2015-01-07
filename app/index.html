@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="ngMailApp">
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -15,11 +15,20 @@
     <link rel="stylesheet" href="styles/sidebar.css">
 
     <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  </head>
 
+    <style>
+      .header {text-align: center;}
+      .form-group {width:100%;}
     </style>
     <!-- endbuild -->
   </head>
-  <body ng-app="ngMailApp">
+  <body>
 
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -33,32 +42,26 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
+                    <a href="#/inbox">
+                        ngMail
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="#">&nbsp;&nbsp; Inbox</a>
                 </li>
                 <li>
-                    <a href="#">Shortcuts</a>
+                    <a href="#">&nbsp;&nbsp; Sent</a>
                 </li>
                 <li>
-                    <a href="#">Overview</a>
+                    <a href="#">&nbsp;&nbsp; Starred</a>
                 </li>
                 <li>
-                    <a href="#">Events</a>
+                    <a href="#">&nbsp;&nbsp; Drafts</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="#">&nbsp;&nbsp; Trash</a>
                 </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
+              </ul>
         </div>
 
         <!-- /#sidebar-wrapper -->
@@ -66,25 +69,15 @@
         <!-- Page Content -->
       <div id="page-content-wrapper">
         <div class="header">
-            <h3 class="text-muted">ngMail</h3>
+            <img class="pull-right" src="images/ngMailLogo.png" alt="ngMailLogo" height="66" width="280"/>
         </div>
+
+        <br><br>
         
         <div ng-view></div>
 
         <div class="footer">
           <div class="row marketing">
-            <h4>HTML5 Boilerplate</h4>
-            <p>
-              HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-            </p>
-
-            <h4>Angular</h4>
-            <p>
-              AngularJS is a toolset for building the framework most suited to your application development.
-            </p>
-
-            <h4>Karma</h4>
-            <p>Spectacular Test Runner for JavaScript.</p>
           </div>
         </div>
       </div>  <!-- /#page-content-wrapper -->
@@ -127,8 +120,13 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/inbox.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/InboxCtrl.js"></script>
+    <script src="scripts/controllers/EmailCtrl.js"></script>
+    <script src="scripts/factories/InboxFactory.js"></script>
+    <script src="scripts/factories/EmailFactory.js"></script>
+    <script src="scripts/directives/InboxDrctv.js"></script>
+    <script src="scripts/directives/EmailDrctv.js"></script>
         <!-- endbuild -->
   </body>
 </html>
