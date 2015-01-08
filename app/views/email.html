@@ -1,9 +1,12 @@
-<div class="module inbox-view">
-  <div class="module__title">
-    <h1> {{ email.title }} </h1>
-  </div>
+
+<div class="col-lg-3 inbox-panel">
+  <h1> {{ inbox.title }} </h1>
+  <inbox></inbox>
 </div>
 
-<div class="module directive">
+<div class="col-lg-9 email-panel">
+    <h1> {{ email.title }} </h1>
     <email></email>
 </div>
+
+

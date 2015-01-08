@@ -4,7 +4,7 @@
     <div class="inbox__count">
       You have {{ inbox.messages.length && inbox.messages.length || 'no' }} messages
     </div>
-    <div ng-hide="!inbox.messages.length" class="input-group" style="width:100%; margin-top:5px; margin-bottom:15px;">
+    <div ng-hide="!inbox.messages.length" class="input-group" style="width:100%; margin-top:5px; margin-bottom:5px;">
       <input type="text" class="form-control" 
         ng-model="inbox.search" placeholder="Search">
     </div>
@@ -14,6 +14,7 @@
       
       <li ng-repeat="message in inbox.messages | filter:{ from: inbox.search }">
         <div class="">
+          <hr>
           <p class="pull-right"> {{ message.date | date: 'dd/MM/yyyy' }} </p>
           <p class=""><b>{{ message.from }}</b></p>
           <p class=""> {{ message.subject }} </p>
@@ -26,7 +27,6 @@
           <a href="" class="btn btn-danger" ng-click="inbox.deleteMessage(id, $index);">
             Delete
           </a>
-          <hr>
         </div>
       </li>
     </ul>
