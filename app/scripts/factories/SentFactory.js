@@ -5,37 +5,30 @@ angular.module('ngMailApp')
 	.factory('SentFactory', function SentFactory ($q, $http, $location) {
 		
 		'use strict';
-
+		
 		var exports = {};
 
 		exports.messages = [];
 
-		exports.messages.push({id: 1, msg: "this is a sent msg."});
+		exports.goToSentMessage = function (id) {
+			if ( angular.isNumber(id)) {
+				console.log('sent/email/' + id);
+				$location.path('sent/email/' + id);
+			}
+		};
 
-		// exports.goToMessage = function (id) {
-		// 	if ( angular.isNumber(id)) {
-		// 		console.log('inbox/email/' + id);
-		// 		$location.path('inbox/email/' + id);
-		// 	}
-		// };
-
-		// exports.deleteMessage = function (id, index) {
-		// 	this.messages.splice(index, 1);
-		// };
-
-		// exports.getMessages = function () {
-		// 	var deferred = $q.defer();
-		// 	$http.get('scripts/json/emails.json')
-		// 		.success(function (data) {
-		// 			exports.messages = data;
-		// 			deferred.resolve(data);
-		// 		})
-		// 		.error(function (data) {
-		// 			deferred.reject(data);
-		// 		});
-		// 	return deferred.promise;
-		// };
-
+		exports.getSentMessages = function () {
+			var deferred = $q.defer();
+			$http.get('scripts/json/outboxEmails.json')
+				.success(function (data) {
+					exports.messages = data;
+					deferred.resolve(data);
+				})
+				.error(function (data) {
+					deferred.reject(data);
+				});
+			return deferred.promise;
+		};
 
 		return exports;
 

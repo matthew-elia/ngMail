@@ -18,7 +18,7 @@ angular
       controllerAs: 'inbox'
     })
     .when('/inbox/email/:id', {
-      templateUrl: 'views/email.html',
+      templateUrl: 'views/inbox.html',
       controller: 'EmailCtrl',
       controllerAs: 'email'
     })
@@ -27,11 +27,17 @@ angular
       controller: 'SentCtrl',
       conrollerAs: 'sent'
     })
+    .when('/sent/email/:id', {
+      templateUrl: 'views/sent.html',
+      controller: 'EmailCtrl',
+      controllerAs: 'email'
+    })
     .otherwise({
       redirectTo: '/inbox'
     });
-}).run(function($rootScope){
-  $rootScope.$on('$routeChangeError', function(event, current, previous, rejection){
-    console.log(event, current, previous, rejection);
+
+  }).run(function($rootScope){
+    $rootScope.$on('$routeChangeError', function(event, current, previous, rejection){
+      console.log(event, current, previous, rejection);
+    });
   });
-});

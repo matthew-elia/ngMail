@@ -15,16 +15,12 @@ angular.module('ngMailApp')
       controller: function (SentFactory) {
         this.messages = [];
 
-        this.goToMessage = function (id) {
-          SentFactory.goToMessage(id);
+        this.getMessages = function (id) {
+          SentFactory.goToSentMessage(id);
         };
         
-        this.deleteMessage = function (id, index) {
-          SentFactory.deleteMessage(id, index);
-        };
-        
-        SentFactory.getMessages()
-          .then( angular.bind(this, function then() {
+        SentFactory.getSentMessages()
+          .then( angular.bind( this, function then() {
               this.messages = SentFactory.messages;
             }) );
 

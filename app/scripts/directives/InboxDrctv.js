@@ -15,7 +15,7 @@ angular.module('ngMailApp')
       controller: function (InboxFactory) {
         this.messages = [];
 
-        this.goToMessage = function (id) {
+        this.getMessages = function (id) {
           InboxFactory.goToMessage(id);
         };
         

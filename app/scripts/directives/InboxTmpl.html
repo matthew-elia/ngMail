@@ -11,7 +11,6 @@
 
   </div>
     <ul class="list-unstyled">
-      
       <li ng-repeat="message in inbox.messages | filter:{ from: inbox.search }">
         <div class="">
           <hr>
@@ -21,7 +20,7 @@
         </div>
         <div class="inbox__list-actions">
           <a href="" class="btn btn-success"
-            ng-click="inbox.goToMessage(message.id);">
+            ng-click="inbox.getMessages(message.id);">
             Read
           </a>
           <a href="" class="btn btn-danger" ng-click="inbox.deleteMessage(id, $index);">

@@ -3,7 +3,9 @@
  */
 angular.module('ngMailApp')
 	.factory('InboxFactory', function InboxFactory ($q, $http, $location) {
+		
 		'use strict';
+		
 		var exports = {};
 
 		exports.messages = [];
@@ -21,7 +23,7 @@ angular.module('ngMailApp')
 
 		exports.getMessages = function () {
 			var deferred = $q.defer();
-			$http.get('scripts/json/emails.json')
+			$http.get('scripts/json/inboxEmails.json')
 				.success(function (data) {
 					exports.messages = data;
 					deferred.resolve(data);

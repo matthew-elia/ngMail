@@ -8,16 +8,28 @@ angular.module('ngMailApp')
 
     exports.reply = function (message) {
       if (message) {
-        // we would obviously hit the back-end here
-        // but let's just alert what we've typed
         console.log('Reply content: ' + message);
       }
     };
 
-    exports.getMessage = function (params) {
+    exports.viewInboxMessage = function (params) {
       if ( params.id ) {
         var deferred = $q.defer();
-        $http.get('scripts/json/message/' + params.id + '.json')
+        $http.get('scripts/json/inbox/' + params.id + '.json')
+          .success(function (data) {
+            deferred.resolve(data);
+          })
+          .error(function (data) {
+            deferred.reject(data);
+          });
+        return deferred.promise;
+      }
+    };
+
+    exports.viewSentMessage = function (params) {
+      if ( params.id ) {
+        var deferred = $q.defer();
+        $http.get('scripts/json/outbox/' + params.id + '.json')
           .success(function (data) {
             deferred.resolve(data);
           })
