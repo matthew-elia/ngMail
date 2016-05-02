@@ -1,13 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name ngMailApp
- * @description
- * # ngMailApp
- *
- * Main module of the application.
- */
 angular
   .module('ngMailApp', [
     'ngAnimate',
@@ -29,6 +21,11 @@ angular
       templateUrl: 'views/email.html',
       controller: 'EmailCtrl',
       controllerAs: 'email'
+    })
+    .when('/sent', {
+      templateUrl: 'views/sent.html',
+      controller: 'SentCtrl',
+      conrollerAs: 'sent'
     })
     .otherwise({
       redirectTo: '/inbox'
